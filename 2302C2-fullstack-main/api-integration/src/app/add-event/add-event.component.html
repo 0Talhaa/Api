@@ -1,0 +1,33 @@
+<div class="container">
+
+  <form>
+      <div class="mb-3">
+        <label for="customerName" class="form-label">Customer Name</label>
+        <input type="text" class="form-control" name="customerName" [(ngModel)]="event.customerName" >
+        
+      </div>
+      <div class="mb-3">
+        <label for="noOfGuests" class="form-label">No of guests</label>
+        <input type="number" class="form-control" name="noOfGuests" [(ngModel)]="event.noOfGuests">
+        
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Event Date</label>
+        <input type="date" class="form-control" name="date" [(ngModel)]="event.date">
+        
+      </div>
+      <div class="mb-3">
+        <label for="eventTypeId" class="form-label">Event type</label>
+        <select  class="form-control" name="eventTypeId" [(ngModel)]="event.eventTypeId">
+          <option value="none" disabled selected>Choose event type</option>
+          @for(ev of eventTypes; track $index){
+              <option value="{{ev.id}}" >{{ev.type}} | Rs. {{ev.pricePerPerson}} per person</option>
+
+          }
+        </select>
+        
+      </div>
+     
+      <button type="submit" class="btn btn-primary" (click)="AddEvent()">Add Event</button>
+    </form>
+</div>

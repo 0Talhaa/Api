@@ -1,0 +1,29 @@
+<div class="container table-responsive">
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Event type</th>
+            <th scope="col">Date</th>
+            <th scope="col">No of guests</th>
+          </tr>
+        </thead>
+        <tbody>
+            @for(event of events;track $index){
+                <tr>
+                    <th scope="row">{{$index +1}}</th>
+                    <td>{{event.customerName}}</td>
+                    <td>{{event.eventType.type}}</td>
+                    <td>{{event.date}}</td>
+                    <td>{{event.noOfGuests}}</td>
+                    <a [routerLink]="['/editEvent',event.id]">EDIT</a>
+                    <a >DELETE</a>
+                  </tr>
+            }
+        
+       
+        </tbody>
+      </table>
+</div>
